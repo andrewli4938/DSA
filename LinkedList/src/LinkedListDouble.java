@@ -1,10 +1,10 @@
-public class LinkedList<T> {
+public class LinkedListDouble<T> {
     private Node<T> head; 
     private int listLength; 
 
-    public LinkedList()
-    {  
-        head = null;
+    public LinkedListDouble()
+    {
+        head = null; 
     }
 
     public void addNode(T value)
@@ -20,6 +20,7 @@ public class LinkedList<T> {
             {
                 current = current.next; 
             }
+            newNode.prev = current;
             current.next = newNode; 
         }
         listLength += 1; 
@@ -28,30 +29,28 @@ public class LinkedList<T> {
     public Node<T> popTail()
     {
         Node<T> current = head; 
-        Node<T> prev = null; 
         while(current.next!=null)
         {
-            prev = current; 
             current = current.next;
         }
         
         Node<T> removed = current; 
-        prev.next = null; 
+        current.prev.next = null; 
         return removed; 
     }
 
     public void printList()
     {
-        Node<T> current = head; 
+        Node<T> current = head;
         while(current!=null)
         {
-            System.out.println(current.value); 
-            current = current.next; 
+            System.out.println(current.value);
+            current = current.next;
         }
     }
 
     public void printLength()
     {
-        System.out.println(listLength); 
+        System.out.println(listLength);
     }
 }
