@@ -37,6 +37,7 @@ public class LinkedList<T> {
         
         Node<T> removed = current; 
         prev.next = null; 
+        listLength -= 1; 
         return removed; 
     }
 

@@ -36,6 +36,7 @@ public class LinkedListDouble<T> {
         
         Node<T> removed = current; 
         current.prev.next = null; 
+        listLength -= 1; 
         return removed; 
     }
 

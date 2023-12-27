@@ -28,5 +28,6 @@ public class App {
         doublelist.popTail(); 
 
         doublelist.printList();
+        doublelist.printLength();
     }
 }
