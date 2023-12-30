@@ -1,10 +1,13 @@
-public class LinkedListDouble<T> {
+package org.dsa.api;
+
+
+public class LinkedList<T> {
     private Node<T> head; 
     private int listLength; 
 
-    public LinkedListDouble()
-    {
-        head = null; 
+    public LinkedList()
+    {  
+        head = null;
     }
 
     public void addNode(T value)
@@ -20,7 +23,6 @@ public class LinkedListDouble<T> {
             {
                 current = current.next; 
             }
-            newNode.prev = current;
             current.next = newNode; 
         }
         listLength += 1; 
@@ -29,29 +31,41 @@ public class LinkedListDouble<T> {
     public Node<T> popTail()
     {
         Node<T> current = head; 
+        Node<T> prev = null; 
         while(current.next!=null)
         {
+            prev = current; 
             current = current.next;
         }
         
         Node<T> removed = current; 
-        current.prev.next = null; 
+        prev.next = null; 
         listLength -= 1; 
         return removed; 
     }
 
-    public void printList()
+    public String getListElements()
     {
-        Node<T> current = head;
+        StringBuffer sb = new StringBuffer("{");
+        Node<T> current = head; 
         while(current!=null)
         {
-            System.out.println(current.value);
-            current = current.next;
+            sb.append("[").append(current.value).append("]");
+            current = current.next; 
         }
+        sb.append("}");
+        return sb.toString();
     }
 
-    public void printLength()
+    public int getListLength()
     {
-        System.out.println(listLength);
+        System.out.println(listLength); 
+        return listLength;
     }
+
+
+//     private void printList(){ //visual testing
+//         System.out.println(getListString());
+
+//     }
 }
