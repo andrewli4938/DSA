@@ -1,5 +1,7 @@
 package org.dsa.api;
 
+import java.util.List;
+import java.util.ArrayList;
 
 public class LinkedList<T> {
     private Node<T> head; 
@@ -44,7 +46,24 @@ public class LinkedList<T> {
         return removed; 
     }
 
-    public String getListElements()
+    /**
+     * This class should provide a travsing method that return the object type T. 
+     * I am just hacking it here via java collections for the simplicity 
+     * @return
+     */
+     public List<T> getElementObject(){
+        ArrayList<T> list = new ArrayList<T>();
+        Node<T> current = head; 
+        while(current!=null)
+        {
+            list.add(current.value);
+            current = current.next; 
+        }
+        return list;
+    }
+
+
+    public String getElements()
     {
         StringBuffer sb = new StringBuffer("{");
         Node<T> current = head; 

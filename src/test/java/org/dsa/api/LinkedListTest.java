@@ -29,11 +29,11 @@ public class LinkedListTest {
     }
 
      @Test
-    public  void testGetListElements(){
-        System.out.println(innerList1.getListElements());
+    public  void testGetElements(){
+        System.out.println(innerList1.getElements());
         
         String expectedElements = "{[1][2][3][2]}";
-        assertEquals(expectedElements,innerList1.getListElements() );
+        assertEquals(expectedElements,innerList1.getElements() );
     }
     
      @Test
